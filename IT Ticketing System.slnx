@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="IT Ticketing System/IT Ticketing System.vcxproj" Id="884b9eaf-32c3-4b20-8d35-ed3e075521d6" />
+</Solution>
