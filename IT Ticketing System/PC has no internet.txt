@@ -1,0 +1,5 @@
+Ticket: No 01: PC has no internet
+Ticket Holder: Black Sabbath
+Date: 01/01/2025
+Description: The pc in one of the lab rooms has no internet connection
+------------------------

@@ -2,6 +2,7 @@
 #include<string>
 #include<limits>
 #include<fstream>
+#include <filesystem>
 using namespace std;
 
 int main()
@@ -17,7 +18,7 @@ int main()
 	do
 	{
 		cout << "Please Enter Your account name: " << endl;
-		cin >> account; 
+		cin >> account;
 		cout << "Please Enter your password: " << endl;
 		cin >> password;
 
@@ -63,7 +64,9 @@ int main()
 
 			case 1:
 			{
+
 				string ticketHolder;
+				string ticketName;
 				string ticketDate;
 				string description;
 
@@ -75,17 +78,28 @@ int main()
 				cout << "Ticket Holder: ";
 				getline(cin, ticketHolder);
 
+				cout << "Ticket Name: ";
+				getline(cin, ticketName);
+
+
 				cout << "Date of Ticket (MM/DD/YYYY): ";
 				getline(cin, ticketDate);
 
 				cout << "Description: ";
 				getline(cin, description);
 
+
+				//Thisgenerates filename from the ticket name variable
+				string fileName = ticketName + ".txt";
+
 				// Create or append to the ticket file.
-				ofstream ticketFile("tickets.txt", ios::app);
+				ofstream ticketFile(fileName);
 
 				if (ticketFile.is_open())
 				{
+					ticketFile << "Ticket: No 01: "
+						<< ticketName << endl;
+
 					ticketFile << "Ticket Holder: "
 						<< ticketHolder << endl;
 
@@ -95,20 +109,30 @@ int main()
 					ticketFile << "Description: "
 						<< description << endl;
 
-					ticketFile << "------------------------"
-						<< endl;
+					ticketFile << "------------------------" << endl;
 
 					ticketFile.close();
 
 					cout << "\nTicket saved successfully!\n";
-				}
-				else
-				{
-					cout << "Error: Could not open ticket file.\n";
+					cout << "Filename: " << fileName << endl;
+					cout << "Ticket saved at: "
+						<< filesystem::absolute(fileName)
+						<< endl;
+
+
 				}
 
-				break;
+				else
+				{
+					cout << "Error: Could not save ticket.\n";
+				}
+
+				//Here I Can immplete, oncce the ticket gets saved, it will stored
+				//but if there's a ticket has the same name, cancel the save, 
+				//and prompt the user to ask for another ticket name
+				//is there a code syntax where I can store the tickets
 			}
+
 
 
 
@@ -119,7 +143,7 @@ int main()
 			case 3:cout << "Update A Ticket" << endl;
 				break;
 
-				
+
 			default:cout << "Wrong choice!" << endl;
 
 			}
@@ -128,7 +152,7 @@ int main()
 
 
 
-			
+
 		} while (choice = !4);
 		//I should add that it would go back to the login screen
 
@@ -142,5 +166,5 @@ int main()
 
 
 	//testing gitub
-	return 0;
+return 0;
 }
