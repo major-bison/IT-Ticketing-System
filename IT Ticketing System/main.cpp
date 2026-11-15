@@ -1,4 +1,7 @@
 #include<iostream>
+#include<string>
+#include<limits>
+#include<fstream>
 using namespace std;
 
 int main()
@@ -14,7 +17,7 @@ int main()
 	do
 	{
 		cout << "Please Enter Your account name: " << endl;
-		cin >> account;
+		cin >> account; 
 		cout << "Please Enter your password: " << endl;
 		cin >> password;
 
@@ -56,6 +59,69 @@ int main()
 			switch (choice)
 			{
 
+
+
+			case 1:
+			{
+				string ticketHolder;
+				string ticketDate;
+				string description;
+
+				cout << "===== CREATE A TICKET =====" << endl;
+
+				// This will clear the newline left from cin >> choice.
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+				cout << "Ticket Holder: ";
+				getline(cin, ticketHolder);
+
+				cout << "Date of Ticket (MM/DD/YYYY): ";
+				getline(cin, ticketDate);
+
+				cout << "Description: ";
+				getline(cin, description);
+
+				// Create or append to the ticket file.
+				ofstream ticketFile("tickets.txt", ios::app);
+
+				if (ticketFile.is_open())
+				{
+					ticketFile << "Ticket Holder: "
+						<< ticketHolder << endl;
+
+					ticketFile << "Date: "
+						<< ticketDate << endl;
+
+					ticketFile << "Description: "
+						<< description << endl;
+
+					ticketFile << "------------------------"
+						<< endl;
+
+					ticketFile.close();
+
+					cout << "\nTicket saved successfully!\n";
+				}
+				else
+				{
+					cout << "Error: Could not open ticket file.\n";
+				}
+
+				break;
+			}
+
+
+
+			case 2:
+				cout << " View Existing Ticket" << endl;
+				break;
+
+			case 3:cout << "Update A Ticket" << endl;
+				break;
+
+				
+			default:cout << "Wrong choice!" << endl;
+
 			}
 
 
@@ -64,8 +130,11 @@ int main()
 
 			
 		} while (choice = !4);
+		//I should add that it would go back to the login screen
 
 		cout << "You have exit the program" << endl;
+
+
 	}
 
 	//Main menu interface with 4 options
