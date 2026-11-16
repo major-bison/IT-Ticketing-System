@@ -12,6 +12,7 @@ int main()
     int welcomeChoice = 0;
   
     // OUTER LOOP: Keep the program running until the user quits.
+    
     do
     {
         cout << "\n====================================\n";
@@ -21,9 +22,13 @@ int main()
         cout << "2. Quit Program\n";
         cout << "Enter choice: ";
 
+        //cin.ignore functions discard any inccorrect inputs
+        //I wrote continue so it can clear the incorrect input and
+        //run the login menu again. 
+
         if (!(cin >> welcomeChoice))
         {
-            cout << "Invalid input! Enter a number.\n";
+            cout <<  "sorry!,invalid input! Enter a number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
@@ -238,6 +243,10 @@ int main()
                     // ================================
                     case 3:
                     {
+
+                        //added sepperator for now, so it'll keep the t ickets readable.
+                        //The varialbe newValue is used to store updated infomratin.
+
                         string ticketName;
                         string fileName;
                         string ticketTitle;
@@ -309,7 +318,7 @@ int main()
                         }
 
                         cin.ignore(
-                            numeric_limits<streamsize>::max(), '\n');
+      numeric_limits<streamsize>::max(), '\n');
 
                         cout << "Enter new value: ";
                         getline(cin, newValue);
@@ -383,8 +392,8 @@ int main()
 
     } while (welcomeChoice != 2); // End of welcome loop
 
-    cout << "\nThank you for using Sabbath Ticketing System!\n";
-    cout << "Program terminated.\n";
+    cout << "\n Thank you for using Sabbath Ticketing System!\n";
+    cout << "Program will be terminated.\n";
 
     return 0;
 }
