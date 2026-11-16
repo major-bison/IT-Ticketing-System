@@ -1,0 +1,5 @@
+Ticket: No 01: Printer Issue
+Ticket Holder: Randy Johnson
+Date: 02/02/1995
+Description: Problem has been solved
+------------------------
