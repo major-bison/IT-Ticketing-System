@@ -1,0 +1,42 @@
+My next tasks will be implementing functions
+
+displayLoginMenu()
+login()
+dispalyMainMenu
+createTicket()
+viewTickets()
+updateTicket()
+recommendTeam()//Practicing stub function
+
+
+void displayLoginMenu()
+{
+
+ cout << "\n====================================\n";
+        cout << "     SABBATH TICKETING SYSTEM\n";
+        cout << "====================================\n";
+        cout << "1. Login (Username and Password)\n";
+        cout << "2. Quit Program\n";
+        cout << "Enter choice: ";
+
+}
+
+void displayMainMenu()
+{
+ cout << "\n====================================\n";
+                    cout << "            MAIN MENU\n";
+                    cout << "====================================\n";
+                    cout << "1. Create a Ticket\n";
+                    cout << "2. View Existing Ticket\n";
+                    cout << "3. Update a Ticket\n";
+                    cout << "4. Logout\n";
+                    cout << "Enter choice: ";
+
+}
+
+void createTicket() {
+
+
+}
+
+void viewTickets()

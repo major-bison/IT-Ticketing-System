@@ -1,0 +1,11 @@
+displayLoginMenu()
+login()
+dispalyMainMenu
+createTicket()
+viewTickets()
+updateTicket()
+recommendTeam()//Practicing stub function
+
+
+void displayLoginMenu()
+
