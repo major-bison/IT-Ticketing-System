@@ -8,6 +8,21 @@ viewTickets()
 updateTicket()
 recommendTeam()//Practicing stub function
 
+inside the main function 
+
+(
+
+do {
+
+displayMenu();
+cin<
+
+
+}
+
+
+
+
 
 void displayLoginMenu()
 {

@@ -8,4 +8,18 @@ recommendTeam()//Practicing stub function
 
 
 void displayLoginMenu()
+{
 
+
+
+cout << "\n====================================\n";
+        cout << "     SABBATH TICKETING SYSTEM\n";
+        cout << "====================================\n";
+        cout << "1. Login (Username and Password)\n";
+        cout << "2. Quit Program\n";
+        cout << "Enter choice: ";
+
+
+
+
+}
