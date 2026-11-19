@@ -9,7 +9,7 @@ using namespace std;
 void displayWelcomeMenu(); //function woreks
 void displayMainMenu();
 void createTicket();
-void viewTickets();
+void viewTicket();
 void updateTicket();
 
 int main()
@@ -107,42 +107,10 @@ int main()
                
                     case 2:
                     {
-                        string ticketName;
-                        string fileName;
-                        string line;
 
-                        cout << "\n===== VIEW EXISTING TICKET =====\n";
-
-                        cin.ignore(
-                            numeric_limits<streamsize>::max(), '\n');
-
-                        cout << "Enter ticket name: ";
-                        getline(cin, ticketName);
-
-                        fileName = ticketName + ".txt";
-
-                        // Open file for reading only.
-                        ifstream ticketFile(fileName);
-
-                        if (ticketFile.is_open())
-                        {
-                            cout << "\n===== TICKET CONTENTS =====\n";
-
-                            while (getline(ticketFile, line))
-                            {
-                                cout << line << endl;
-                            }
-
-                            ticketFile.close();
-
-                            cout << "\nEnd of ticket.\n";
-                        }
-                        else
-                        {
-                            cout << "Ticket not found or "
-                                << "cannot be opened!\n";
-                        }
-
+                        //display viewTickets function
+                       
+                        viewTicket();
                         break;
                     }
 
@@ -422,6 +390,48 @@ void createTicket()
     else
     {
         cout << "Error: Could not create ticket.\n";
+    }
+
+
+}
+
+void viewTicket()
+{
+
+    string ticketName;
+    string fileName;
+    string line;
+
+    cout << "\n===== VIEW EXISTING TICKET =====\n";
+
+    cin.ignore(
+        numeric_limits<streamsize>::max(), '\n');
+
+    cout << "Enter ticket name: ";
+    getline(cin, ticketName);
+
+    fileName = ticketName + ".txt";
+
+    // Open file for reading only.
+    ifstream ticketFile(fileName);
+
+    if (ticketFile.is_open())
+    {
+        cout << "\n===== TICKET CONTENTS =====\n";
+
+        while (getline(ticketFile, line))
+        {
+            cout << line << endl;
+        }
+
+        ticketFile.close();
+
+        cout << "\nEnd of ticket.\n";
+    }
+    else
+    {
+        cout << "Ticket not found or "
+            << "cannot be opened!\n";
     }
 
 
