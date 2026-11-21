@@ -564,8 +564,5 @@ void updateTicket()
         cout << "\nTicket updated successfully!\n";
     }
 
-    break;
-}
-
-
+    return;
 }
