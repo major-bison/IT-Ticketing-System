@@ -436,3 +436,136 @@ void viewTicket()
 
 
 }
+
+void updateTicket()
+{
+
+    //added sepperator for now, so it'll keep the t ickets readable.
+                        //The varialbe newValue is used to store updated infomratin.
+
+    string ticketName;
+    string fileName;
+    string ticketTitle;
+    string ticketHolder;
+    string ticketDate;
+    string description;
+    string separator;
+    string newValue;
+    int updateChoice;
+
+    cout << "\n===== UPDATE A TICKET =====\n";
+
+    cin.ignore(
+        numeric_limits<streamsize>::max(), '\n');
+
+    cout << "Enter ticket name: ";
+    getline(cin, ticketName);
+
+    fileName = ticketName + ".txt";
+
+    // Read the existing ticket.
+    ifstream inputFile(fileName);
+
+    //validates if the ticket has been found or not
+    if (!inputFile.is_open())
+    {
+        cout << "Ticket not found!\n";
+        return;
+    }
+
+    //IF FILE was found then extract every data from file
+    getline(inputFile, ticketTitle);
+    getline(inputFile, ticketHolder);
+    getline(inputFile, ticketDate);
+    getline(inputFile, description);
+    getline(inputFile, separator);
+
+    //If ticket is corrupted
+    if (!inputFile)
+    {
+        cout << "Error: Ticket file is incomplete.\n";
+        inputFile.close();
+        return;
+    }
+
+    //Close the file, dont need to leave it open to update
+    inputFile.close();
+
+
+    cout << "\n1. Update Description\n";
+    cout << "2. Update Ticket Holder\n";
+    cout << "3. Cancel\n";
+    cout << "Enter choice: ";
+
+    //If a user inputs the wrong data type, trigger this response
+
+    if (!(cin >> updateChoice))
+    {
+        cout << "Invalid input!\n";
+        cin.clear();
+        cin.ignore(
+            numeric_limits<streamsize>::max(), '\n');
+        return;
+    }
+
+    if (updateChoice == 3)
+    {
+        cout << "Update cancelled.\n";
+        return;
+    }
+
+    //If user inputs an number that's not 1 or 2
+    if (updateChoice != 1 && updateChoice != 2)
+    {
+        cout << "Invalid choice.\n";
+        return;
+    }
+
+    cin.ignore(
+        numeric_limits<streamsize>::max(), '\n');
+    //IF user picks one then this code will follow
+
+    cout << "Enter new value: ";
+    getline(cin, newValue);
+
+    if (updateChoice == 1)
+    {
+        description = "Description: " + newValue;
+    }
+    else
+    {
+        ticketHolder = "Ticket Holder: " + newValue;
+    }
+
+    // Overwrites the ticket with updated information.
+    ofstream outputFile(fileName);
+
+    if (!outputFile.is_open())
+    {
+        cout << "Error: Could not update ticket.\n";
+        return;
+    }
+
+    outputFile << ticketTitle << '\n';
+    outputFile << ticketHolder << '\n';
+    outputFile << ticketDate << '\n';
+    outputFile << description << '\n';
+    outputFile << separator << '\n';
+
+    outputFile.close();
+
+    if (outputFile.fail())
+    {
+        cout << "Error: Ticket may not "
+            << "have saved correctly.\n";
+    }
+    else
+    {
+        cout << "\nTicket updated successfully!\n";
+    }
+
+    break;
+}
+
+
+}

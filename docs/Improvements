@@ -1,0 +1,44 @@
+The purpose of this docuemnt is to address potential problems and improve this project.
+
+
+TICKET MAJOR ISSUE
+The current ticketing system stores ticket information in .txt files using a fixed line by line format.
+When reading a ticket, the program uses getline() to assign each line to a specific variable, such as ticketTitle, ticketHolder, ticketDate, and description.
+
+If the information inside a ticket file is missing, incorrectly formatted, or arranged in the wrong order, the program may assign information to the wrong variables.
+
+For example, if the description and ticket holder lines are swapped, the program may mistakenly interpret the description as the ticket holder.
+
+The existing error handling checks whether file reading succeeds but does not fully validate the contents or organization of the data.
+
+Potential Impact:
+
+Incorrect ticket information may be displayed.
+
+Updating a ticket could overwrite the wrong fields.
+
+Missing or improperly formatted data could cause unexpected behavior.
+
+Multiline descriptions may disrupt the expected file structure.
+
+Proposed Improvements
+
+Short-term:
+
+Implement validation to ensure each line contains the expected field.
+
+Check for missing or incorrectly formatted ticket information.
+
+Improve error handling when reading ticket files.
+
+Long-term:
+
+Implement C++ structures or classes to organize ticket data.
+
+Consider a structured file format such as JSON.
+
+Eventually migrate ticket storage to a SQL database.
+
+
+
+**This issue will be revisited after completing the current ticket management functionality and studying additional C++ concepts, including structures, classes, and data management.**
